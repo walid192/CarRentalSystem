@@ -1,0 +1,117 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "Add new car";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="mt-3 p-3 shadow rounded">
+                <div class="text-center border-bottom">
+                    <h2 class="text-info">
+                        Add New Car
+                    </h2>
+                </div>
+                <div>
+                    @Html.ValidationSummary()
+                </div>
+                <div class="mt-3 p-3">
+                    <form action="/Car/Add" method="post" enctype="multipart/form-data">
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                        Brand
+                                    </label>
+                                    <div class="col-9">
+                                @Html.TextBoxFor(m=>m.Brand,new{@class="form-control",placehodler="eneter brand", required="required"} )
+                                    </div>
+                                </div>
+
+                                 <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                        Model
+                                    </label>
+                                    <div class="col-9">
+                                @Html.TextBoxFor(m=>m.Model,new{@class="form-control",placehodler="Enter Model", required="required"} )
+                                    </div>
+                                </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-3 col-form-label">
+                                Engine
+                            </label>
+                            <div class="col-9">
+                                @Html.TextBoxFor(m=>m.Engine,new{@class="form-control",placehodler="Enter Engine", required="required"} )
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="mb-3 row">
+                            <label class="col-3 col-form-label">
+                                Car number
+                            </label>
+                            <div class="col-9">
+                                @Html.TextBoxFor(m=>m.CarNumber,new{@class="form-control",placehodler="Enter Car Number",required="required"} )
+                            </div>
+                        </div>
+
+                                 <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                        Passing year
+                                    </label>
+                                    <div class="col-9">
+                                @Html.TextBoxFor(m=>m.PassingYear,new{@class="form-control",placehodler="Enter Passing Year",type="number", required="required"} )
+                                    </div>
+                                </div>
+
+                                 <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                        Seating Capacity
+                                    </label>
+                                    <div class="col-9">
+                                @Html.TextBoxFor(m=>m.SeatingCapacity,new{@class="form-control",placehodler="Enter Seating Capacity", type="number",min="2",step="1",required="required"} )
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                         Car Image 
+                                    </label>
+                                    <div class="col-9">
+                                @Html.TextBoxFor(m=>m.CarImage,new{@class="form-control",type="file", required="required"} )
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label">
+                                        Fuel Type
+                                    </label>
+                                    <select name="FuelType" class="form-select" required>
+                                        <option value="">
+                                            Select FuelType
+                                        </option>
+                                        <option value="Deisel">
+                                            Deisel
+                                        </option>
+                                        <option value="Petrol">
+                                            Petrol
+                                        </option>
+                                        <option value="Electric">
+                                            Electric
+                                        </option>
+                                    </select>
+                                </div>
+
+                                
+
+                                <div class="mb-3">
+                                    <button class="btn btn-sm shadow rounded btn-dark" type="reset">Clear</button>
+                                    <button class="btn btn-sm shadow rounded btn-success" type="submit">Add</button>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
