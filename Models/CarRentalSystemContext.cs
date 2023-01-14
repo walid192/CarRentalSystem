@@ -6,8 +6,22 @@ namespace Car_Rental_System.Models;
 
 public partial class CarRentalSystemContext : DbContext
 {
-    public CarRentalSystemContext()
+    private static CarRentalSystemContext instance;
+    private CarRentalSystemContext()
     {
+    }
+
+
+    public static CarRentalSystemContext Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new CarRentalSystemContext();
+            }
+            return instance;
+        }
     }
 
     public CarRentalSystemContext(DbContextOptions<CarRentalSystemContext> options)

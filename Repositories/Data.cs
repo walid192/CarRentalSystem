@@ -2,6 +2,7 @@
 using Car_Rental_System.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Car_Rental_System.Repositories
 {
@@ -41,6 +42,8 @@ namespace Car_Rental_System.Repositories
         }
 
 
+        
+
 
         public string SaveDriverImage(IFormFile file)
         {
@@ -66,7 +69,7 @@ namespace Car_Rental_System.Repositories
 
         public static List<Car> GetAllCars() {
 			List < Car > cars= new List<Car>{};
-            Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+            Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
 			cars = db.Cars.ToList();
 			return cars;
 
@@ -77,7 +80,7 @@ namespace Car_Rental_System.Repositories
         public static List<Driver> GetAllDrivers()
         {
             List<Driver> drivers = new List<Driver> { };
-            Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+            Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
             drivers = db.Drivers.ToList();
             return drivers;
 
@@ -87,7 +90,7 @@ namespace Car_Rental_System.Repositories
         public static List<Rent> GetAllRents()
         {
             List<Rent> rents = new List<Rent>();
-            Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+            Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
             rents= db.Rents.ToList();
             return rents;
 
@@ -101,7 +104,7 @@ namespace Car_Rental_System.Repositories
 
             try
             {
-                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
                 var test=from b in db.Cars select b.Brand;
                 brand=test.Distinct().ToList();
 
@@ -129,7 +132,7 @@ namespace Car_Rental_System.Repositories
 
             try
             {
-                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
                 var test = from b in db.Cars select b.Model;
                 models = test.Distinct().ToList();
 
@@ -157,7 +160,7 @@ namespace Car_Rental_System.Repositories
 
             try
             {
-                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
                 var test = from b in db.Drivers select b.DriverName;
                 drivers = test.ToList();
 
@@ -175,6 +178,42 @@ namespace Car_Rental_System.Repositories
 
         }
 
+        public static void addRent(Rent rent)
+        {
+            if (rent is null)
+            {
+                Debug.WriteLine("Null problem");
+            }
+            else
+            {
+
+                Models.CarRentalSystemContext db = Models.CarRentalSystemContext.Instance;
+                Debug.WriteLine("adding new rent ...");
+                Rent newrent = new Rent()
+                {
+                    PickUp = rent.PickUp,
+                    DropOff = rent.DropOff,
+                    PickUpDate = rent.PickUpDate,
+                    DropOffDate = rent.DropOffDate,
+                    TotalRun = rent.TotalRun,
+                    Rate = rent.Rate,
+                    TotalAmount = rent.Rate * rent.TotalRun,
+                    Brand = rent.Brand,
+                    Model = rent.Model,
+                    CustomerContactNo = rent.CustomerContactNo,
+                    CustomerName = rent.CustomerName,
+                    DriverId = rent.DriverId,
+
+                };
+
+                db.Rents.Add(newrent);
+                db.SaveChanges();
+                Debug.WriteLine("done");
+            }
+        }
+
+
+        
 
 
 

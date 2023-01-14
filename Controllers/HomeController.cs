@@ -1,6 +1,7 @@
 ﻿using Car_Rental_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Car_Rental_System.Repositories;
 
 namespace Car_Rental_System.Controllers
 {
@@ -15,8 +16,8 @@ namespace Car_Rental_System.Controllers
 
         public IActionResult Index()
         {
-           
-            return View();
+            List<Car> cars = Data.GetAllCars();
+            return View(cars );
         }
 
         public IActionResult Privacy()

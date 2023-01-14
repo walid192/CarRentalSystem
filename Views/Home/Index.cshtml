@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Car>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -28,6 +29,33 @@
 
         </div>
     </div>
+
+
+    <div class="row mt-3">
+        @foreach (var car in Model)
+        { 
+            if (car.ImagePath!=null && car.ImagePath.Length>76)
+            {
+                <div class="col-4">
+                    <div class="mt-2 p-3 shadow rounded">
+                        <div class="card" style="height:350px">
+                            <img src="/Cars/@car.ImagePath.Substring(76,car.ImagePath.Length-76)" class="card-img-top h-50" />
+                            <div class="card-body">
+                                <h5 class="text-info">@car.Brand @car.Model</h5>
+                                <p class="card-text"><span class="fw-bold">Engine</span> @car.Engine</p>
+                                <p class="card-text"><span class="fw-bold">FuelType</span> @car.FuelType</p>
+                                <p class="card-text"><span class="fw-bold">Seating capacity </span>@car.SeatingCapacity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+            
+        }
+
+    </div>
+
 
 </div>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

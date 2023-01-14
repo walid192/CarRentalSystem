@@ -32,7 +32,7 @@ namespace Car_Rental_System.Controllers
             }
             else {
 
-                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                Models.CarRentalSystemContext db =  Models.CarRentalSystemContext.Instance;
                 Data data = new Data(webHostEnvironment);
                 Car newcar = new Car() {
                 SeatingCapacity = c.SeatingCapacity,
