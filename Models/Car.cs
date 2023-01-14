@@ -17,12 +17,13 @@ public partial class Car
     public string? Engine { get; set; }
 
     public string? FuelType { get; set; }
-
+    
     public string? ImagePath { get; set; }
 
     public int? SeatingCapacity { get; set; }
 
     public int Id { get; set; }
+
     [NotMapped]
     public IFormFile CarImage { get; set; }
 }

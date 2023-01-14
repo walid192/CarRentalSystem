@@ -6,9 +6,6 @@ namespace Car_Rental_System.Models;
 
 public partial class Driver
 {
-    
-    public int Id { get; set; }
-
     public string? DriverName { get; set; }
 
     public string? Address { get; set; }
@@ -21,6 +18,7 @@ public partial class Driver
 
     public string? ImagePath { get; set; }
 
+    public int Id { get; set; }
     [NotMapped]
     public IFormFile DriverImage { get; set; }
 }

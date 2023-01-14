@@ -23,7 +23,7 @@ public partial class CarRentalSystemContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-0N4UGJ4;Database=CarRentalSystem;Trusted_Connection=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-0N4UGJ4;Database=CarRentalSystem;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,11 +62,9 @@ public partial class CarRentalSystemContext : DbContext
 
         modelBuilder.Entity<Driver>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Drivers__3214EC2725798011");
+            entity.HasKey(e => e.Id).HasName("pk1");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Address)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -78,7 +76,7 @@ public partial class CarRentalSystemContext : DbContext
                 .HasColumnName("DRIVER_NAME");
             entity.Property(e => e.Experience).HasColumnName("EXPERIENCE");
             entity.Property(e => e.ImagePath)
-                .HasMaxLength(50)
+                .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("IMAGE_PATH");
             entity.Property(e => e.MobileNumber)
@@ -89,11 +87,9 @@ public partial class CarRentalSystemContext : DbContext
 
         modelBuilder.Entity<Rent>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Rents__3214EC275C6FA4D5");
+            entity.HasKey(e => e.Id).HasName("pk_Rents");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Brand)
                 .HasMaxLength(50)
                 .IsUnicode(false)

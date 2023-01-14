@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Rent>
 @{
     ViewBag.Title = "Rent";
 }
@@ -22,9 +22,59 @@
                                 <th>DropOff Date</th>
                                 <th>Brand</th>
                                 <th>Model</th>
-                                <th>Total Run</th>
                             </tr>
                         </thead>
+
+                         <tbody>
+                            @foreach (var rent in Model)
+                            {
+                                    <tr>
+                                        <td>@rent.Id</td>
+                                        <td>@rent.PickUp</td>
+                                        <td>@rent.DropOff</td>
+                                        <td>@rent.PickUpDate</td>
+                                        <td>@rent.DropOffDate</td>
+                                        <td>@rent.Brand</td>
+                                        <td>@rent.Model</td>
+
+                                        <td>
+                                        <button class="btn btn-sm btn-primary p-2" type="button" onclick="showMoreDetails(@rent.Id)" id="row-mhbtn-@rent.Id" style="display:">
+                                                More Details
+                                            </button>
+                                        <button class="btn btn-sm btn-primary p-2" type="button" onclick="hideDetails(@rent.Id)" id="row-hbtn-@rent.Id" style="display:none">
+                                            Hide Details
+                                        </button>
+                                        </td>
+                                    </tr>
+                                    <tr id="row-@rent.Id" style="display:none" >
+                                        <td colspan="7">
+                                        <table class="table table-responsive table-bordered text-center">
+                                                <thead class="text-info">
+                                                    <tr>
+                                                        <th>Customer Mobile</th>
+                                                        <th>Customer Mobile No</th>
+                                                        <th>Rate</th>
+                                                        <th>Total Amount</th>
+                                                        <th>Total Run</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@rent.CustomerName</td>
+                                                        <td>@rent.CustomerContactNo</td>
+                                                        <td>@rent.Rate</td>
+                                                        <td>@rent.TotalAmount</td>
+                                                        <td>@rent.TotalRun</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                            }
+
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -32,3 +82,22 @@
     </div>
 </div>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    function showMoreDetails(id) {
+        $('#row-mhbtn-' + id).hide();
+        $('#row-hbtn-'+id).show();
+        $('#row-' + id).show();
+
+
+    }
+
+    function hideDetails(id){
+        $('#row-mhbtn-' + id).show();
+        $('#row-hbtn-'+id).hide();
+        $('#row-' + id).hide();
+
+
+    }
+
+</script>

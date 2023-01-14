@@ -5,8 +5,6 @@ namespace Car_Rental_System.Models;
 
 public partial class Rent
 {
-    public int Id { get; set; }
-
     public string? PickUp { get; set; }
 
     public string? DropOff { get; set; }
@@ -30,4 +28,6 @@ public partial class Rent
     public string? CustomerName { get; set; }
 
     public string? CustomerContactNo { get; set; }
+
+    public int Id { get; set; }
 }

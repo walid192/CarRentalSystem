@@ -73,6 +73,10 @@
       "PackagePath": "staticwebassets\\Cars\\eff35998-d070-427b-b231-a98f9d78b8c9_hh.PNG"
     },
     {
+      "Id": "C:\\Users\\USER\\source\\repos\\Car_Rental_System\\Car_Rental_System\\wwwroot\\Cars\\fc86a2af-5938-49d3-a25c-b8d610e0aa6b_albert Einstien.jpg",
+      "PackagePath": "staticwebassets\\Cars\\fc86a2af-5938-49d3-a25c-b8d610e0aa6b_albert Einstien.jpg"
+    },
+    {
       "Id": "C:\\Users\\USER\\source\\repos\\Car_Rental_System\\Car_Rental_System\\wwwroot\\Cars\\feb9627d-cbf8-4373-9df9-b5f1eb52a420_Capture.PNG",
       "PackagePath": "staticwebassets\\Cars\\feb9627d-cbf8-4373-9df9-b5f1eb52a420_Capture.PNG"
     },
@@ -91,6 +95,10 @@
     {
       "Id": "C:\\Users\\USER\\source\\repos\\Car_Rental_System\\Car_Rental_System\\wwwroot\\Drivers\\989e052b-6a07-4700-8a0c-9b84d34c2278_hh.PNG",
       "PackagePath": "staticwebassets\\Drivers\\989e052b-6a07-4700-8a0c-9b84d34c2278_hh.PNG"
+    },
+    {
+      "Id": "C:\\Users\\USER\\source\\repos\\Car_Rental_System\\Car_Rental_System\\wwwroot\\Drivers\\e7c3e56e-508b-4256-a57b-b9bda05cff27_albert Einstien.jpg",
+      "PackagePath": "staticwebassets\\Drivers\\e7c3e56e-508b-4256-a57b-b9bda05cff27_albert Einstien.jpg"
     },
     {
       "Id": "C:\\Users\\USER\\source\\repos\\Car_Rental_System\\Car_Rental_System\\wwwroot\\Drivers\\efe06793-370d-471f-b9da-e8bc7fe01bc1_hh.PNG",

@@ -83,5 +83,103 @@ namespace Car_Rental_System.Repositories
 
         }
 
+
+        public static List<Rent> GetAllRents()
+        {
+            List<Rent> rents = new List<Rent>();
+            Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+            rents= db.Rents.ToList();
+            return rents;
+
+        }
+
+
+        public static List<string> GetBrand() {
+
+
+         List<string> brand =new List<string>();
+
+            try
+            {
+                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                var test=from b in db.Cars select b.Brand;
+                brand=test.Distinct().ToList();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return brand;
+
+
+        }
+
+
+
+        public static List<string> GetModels()
+        {
+
+
+            List<string> models = new List<string>();
+
+            try
+            {
+                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                var test = from b in db.Cars select b.Model;
+                models = test.Distinct().ToList();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return models;
+
+
+        }
+
+
+
+        public static List<string> GetDrivers()
+        {
+
+
+            List<string> drivers = new List<string>();
+
+            try
+            {
+                Models.CarRentalSystemContext db = new Models.CarRentalSystemContext();
+                var test = from b in db.Drivers select b.DriverName;
+                drivers = test.ToList();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return drivers;
+
+
+        }
+
+
+
+
+
+
+
     }
 }

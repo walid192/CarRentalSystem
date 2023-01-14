@@ -14,7 +14,7 @@
                     @Html.ValidationSummary()
                 </div>
                 <div class="p-3">
-                    <form action="/Rent/Add" method="post" autocomplete="off">
+                    <form action="/Rent/Add" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div id="locationDetails" style="display:">
                             <div class=" mb-3">
                                 <h5 class="text-black"> 
@@ -85,6 +85,10 @@
                                 <div class="col-9">
                                     <select id="brandddl" name="Brand" class="form-select">
                                         <option>Select Brand</option>
+                                        @foreach (var x in ViewBag.Brands)
+                                        {
+                                            <option>@x</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -94,6 +98,10 @@
                                 <div class="col-9">
                                     <select id="modelddl" name="model" class="form-select">
                                         <option>Select Model</option>
+                                         @foreach (var x in ViewBag.Models)
+                                        {
+                                            <option>@x</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -103,6 +111,10 @@
                                 <div class="col-9">
                                     <select id="driverddl" name="driver" class="form-select">
                                         <option>Select Driver</option>
+                                         @foreach (var x in ViewBag.Drivers)
+                                        {
+                                            <option>@x</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -151,5 +163,8 @@
         $('#locationDetails').show();
 
     } 
+
+   
+    
     
 </script>
